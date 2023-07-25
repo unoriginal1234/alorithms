@@ -38,22 +38,22 @@ C = []
 
 # print(C)
 
-A = [1, 1, 1]
-B = [1, 1, 1]
+A = [1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0]
+B = [1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1]
 n = len(A) + 2
 C = [0]*n
 
 A.append(0)
 B.append(0)
 
-for i in range(n - 1):
+
+for i in range((n-1)):
     j = A[i] + B[i] + C[i]
     if j == 3:
-        C[i] = 1
-        C[i + 1] = C[i + 1] + 1
-        C[i + 2] = 1
+        C[i + 1] = 1
     if j == 2:
-        C[i + 1] = C[i +1 ] + 1
+        C[i] = 0
+        C[i + 1] =  1
     if j == 1:
         C[i] = 1
     if j == 0:
@@ -61,8 +61,9 @@ for i in range(n - 1):
 
 
 def binary_summation(X):
-    for i in X:
-        x = X[i]*(2**i)
+    x = 0
+    for i in range(len(X)):
+        x = x + X[i]*(2**i)
     print(x)
 
 
