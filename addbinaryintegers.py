@@ -21,20 +21,55 @@ b = B[i]*(2**i)
 ...
 C = []
 """
-A = [0, 1, 1 , 1]
-B = [0, 1, 0, 1]
-n = len(A) + 1
+# A = [0, 1, 1 , 1]
+# B = [0, 1, 0, 1]
+# n = len(A) + 1
+# C = [0]*n
+
+# for i in range(n-1):
+#     if A[i] + B[i] == 2:
+#         C[i+1] = 1
+#     elif A[i] + B[i] == 1 and C[i] == 0:
+#         C[i] = 1
+#     elif A[i] + B[i] == 1 and C[i] == 1:
+#         C[i+1] = 1
+#     else:
+#         C[i] = C[i] + 0 
+
+# print(C)
+
+A = [1, 1, 1]
+B = [1, 1, 1]
+n = len(A) + 2
 C = [0]*n
 
-for i in range(n-1):
-    if A[i] + B[i] == 2:
-        C[i+1] = 1
-    elif A[i] + B[i] == 1 and C[i] == 0:
+A.append(0)
+B.append(0)
+
+for i in range(n - 1):
+    j = A[i] + B[i] + C[i]
+    if j == 3:
         C[i] = 1
-    elif A[i] + B[i] == 1 and C[i] == 1:
-        C[i+1] = 1
-    else:
-        C[i] = C[i] + 0 
+        C[i + 1] = C[i + 1] + 1
+        C[i + 2] = 1
+    if j == 2:
+        C[i + 1] = C[i +1 ] + 1
+    if j == 1:
+        C[i] = 1
+    if j == 0:
+        C[i] = 0
+
+
+def binary_summation(X):
+    for i in X:
+        x = X[i]*(2**i)
+    print(x)
+
+
+binary_summation(A)
+binary_summation(B)
+binary_summation(C)
+
 
 print(C)
 
